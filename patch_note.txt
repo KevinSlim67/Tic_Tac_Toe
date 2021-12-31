@@ -1,0 +1,23 @@
+NEW :
+- generateMove.cpp
+
+printBoard.cpp :
+- Removed intializeTiles.cpp, and instead put the function in printBoard.cpp
+
+inputMove.cpp :
+- Inversed the variables row and column
+- Added an extra while that makes sure it asks for the user's input again if they input a tile position
+  that's already taken.
+- line 44 : swapped the values in the brackets in order to fix a bug that marked the wrong tile as not empty
+
+updateBoard.cpp :
+- Slightly edited a few spaces in order to make the board better looking
+
+variables.h :
+- Added bool hasMark[DIMENSION][DIMENSION] : It's to keep track of which tiles have a mark (X or O) in them
+
+main.cpp :
+- Added comments as a blueprint to the function to write after this commit and push
+
+Overall :
+- Added a few explanatory comments

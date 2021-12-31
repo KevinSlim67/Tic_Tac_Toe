@@ -1,0 +1,4 @@
+This is my C++ Tic Tac Toe final project
+If you have any doubt about the legitimacy of my work, I made sure to commit my progress every once in a while.
+That way, you can check the progression and see that I indeed worked on this project from scratch.
+The patch_notes.txt file will have some of the changes I made during that progression before I commited and pushed the changes.

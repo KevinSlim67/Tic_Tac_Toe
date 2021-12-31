@@ -20,7 +20,7 @@ struct Player {
 Tile tiles[DIMENSION][DIMENSION];
 Player player;
 Player computer;
-
-
+int hasMark[DIMENSION][DIMENSION] = { false };
+int tiles_used = 0;
 
 #endif
