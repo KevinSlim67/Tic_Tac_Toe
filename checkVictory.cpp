@@ -38,18 +38,18 @@ bool checkVictory(Player p) {
 
 bool checkHorizontalLines(Player p) {
 
-    for (int i = '1'; i <= '3'; i++) {
+    for (char i = '1'; i <= '3'; i++) {
         int count = 0;
 
         for (int j = 0; j < p.moves_count; j++) {
 
             char row = p.moves[j][1];
     
-            if (row == (char) i) {
-                for (int k = 'A'; k <= 'C'; k++) {
+            if (row == i) {
+                for (char k = 'A'; k <= 'C'; k++) {
 
                     char column = p.moves[j][0];
-                    if (column == (char) k) {
+                    if (column == k) {
                             count++;
                         }
 
@@ -66,18 +66,18 @@ bool checkHorizontalLines(Player p) {
 
 bool checkVerticalLines(Player p) {
 
-    for (int i = 'A'; i <= 'C'; i++) {
+    for (char i = 'A'; i <= 'C'; i++) {
         int count = 0;
 
         for (int j = 0; j < p.moves_count; j++) {
 
             char row = p.moves[j][0];
     
-            if (row == (char) i) {
-                for (int k = '1'; k <= '3'; k++) {
+            if (row == i) {
+                for (char k = '1'; k <= '3'; k++) {
 
                     char column = p.moves[j][1];
-                    if (column == (char) k) {
+                    if (column == k) {
                             count++;
                         }
 
@@ -120,11 +120,11 @@ bool checkLeftDiagonal(Player p) {
     int count = 0;
         for (int k = 0; k < p.moves_count; k++) {
 
-            for (int i = '1', j = 'A'; i <= '3' && j <= 'C'; i++, j++) {
+            for (char i = '1', j = 'A'; i <= '3' && j <= 'C'; i++, j++) {
 
                 char row = p.moves[k][1];
                 char column = p.moves[k][0];
-                if (row == (char) i && column == (char) j) {
+                if (row == i && column == j) {
                     count++;
                 }
 
@@ -143,11 +143,11 @@ bool checkRightDiagonal(Player p) {
     int count = 0;
         for (int k = 0; k < p.moves_count; k++) {
 
-            for (int i = '1', j = 'C'; i <= '3' && j >= 'A'; i++, j--) {
+            for (char i = '1', j = 'C'; i <= '3' && j >= 'A'; i++, j--) {
 
                 char row = p.moves[k][1];
                 char column = p.moves[k][0];
-                if (row == (char) i && column == (char) j) {
+                if (row == i && column == j) {
                     count++;
                 }
 

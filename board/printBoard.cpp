@@ -13,7 +13,7 @@ void printBoard() {
             cout << setw(space_size) << "|";
         }
         cout << setw(space_size) << "|" << endl;
-        cout << "   ----------" << endl;
+        cout << "    -------------" << endl;
     }
 
     initializeTiles();

@@ -1,33 +1,21 @@
-NEW :
-- checkVictory.cpp
+updateBoard.cpp :
+- Added a printYellow() function
+- The X and O marks are colored yellow from now on
+- Made a few adjustments so the borders of the board don't move when you add an X or an O
+
+generateMove.cpp :
+- Now the user will only see the last move the computer generated as opposed to seeing every move it tried to generate
+  until it reached a valid one
+
+main.cpp :
+- Replaced every goto with a break;
+- Rewrote the win, lose and tie announcements as small functions
+- Moved the condition that checks for a tie before the generateMove() function. Since the player always starts first,
+  they'll always be the one having the last move. Meaning the program should only check for a tie after the player's turn
+
+variables.h :
+- Added the library <Windows.h> in order to create a HANDLE h, which makes it possible to use the
+  SetConsoleTextAttribute() function, which makes it possible to color text that'll be written after its usage
 
 checkVictory.cpp :
-- checkVictory() :
-- checkHorizontalLines() :
-    it will check each row, then compare each value the player entered, with all the tiles on that row
-    (which are on the 3 columns : A, B, C). If the value and the tile match, it will increment the counter by one. If all
-    3 values match the tile, the counter will reach the number 3, and will then exit the function while returning
-    true as value. If the counter doesn't reach the value of 3, the function will then move on to the next row and
-    repeat the process until there's no more rows. If it reaches the end without returning a value of true, it will
-    therefore return false.
-
-- checkVerticalLines() : it will check each column, then compare each value the player entered, with all the tiles on 
-    that column (which are on the 3 rows  : 1, 2, 3). If the value and the tile match, it will increment the counter by 
-    one. If all 3 values match the tile, the counter will reach the number 3, and will then exit the function while returning
-    true as value. If the counter doesn't reach the value of 3, the function will then move on to the next column and
-    repeat the process until there's no more columns. If it reaches the end without returning a value of true, it will
-    therefore return false.
-
-- checkDiagonals()
-- checkLeftDiagonals() : it will compare each value the player entered with the following tiles : A1, B2, C3.
-    The counter will increment by one every time one of the values matches one of the aforementionned tiles.
-    If 3 of the values the player entere match those tiles, the counter will reach the number 3, and will then exit the
-    function while returning true as a value. If the counter doesn't reach the value of 3 by the end, the function will
-    return false instead.
-
-- checkRightDiagonals() : it will compare each value the player entered with the following tiles : C1, B2, A3.
-    The counter will increment by one every time one of the values matches one of the aforementionned tiles.
-    If 3 of the values the player entere match those tiles, the counter will reach the number 3, and will then exit the
-    function while returning true as a value. If the counter doesn't reach the value of 3 by the end, the function will
-    return false instead.
-
+- Replaced some ints into chars to avoid having to cast into char later on
