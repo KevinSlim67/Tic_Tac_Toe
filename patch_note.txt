@@ -1,23 +1,33 @@
 NEW :
-- generateMove.cpp
+- checkVictory.cpp
 
-printBoard.cpp :
-- Removed intializeTiles.cpp, and instead put the function in printBoard.cpp
+checkVictory.cpp :
+- checkVictory() :
+- checkHorizontalLines() :
+    it will check each row, then compare each value the player entered, with all the tiles on that row
+    (which are on the 3 columns : A, B, C). If the value and the tile match, it will increment the counter by one. If all
+    3 values match the tile, the counter will reach the number 3, and will then exit the function while returning
+    true as value. If the counter doesn't reach the value of 3, the function will then move on to the next row and
+    repeat the process until there's no more rows. If it reaches the end without returning a value of true, it will
+    therefore return false.
 
-inputMove.cpp :
-- Inversed the variables row and column
-- Added an extra while that makes sure it asks for the user's input again if they input a tile position
-  that's already taken.
-- line 44 : swapped the values in the brackets in order to fix a bug that marked the wrong tile as not empty
+- checkVerticalLines() : it will check each column, then compare each value the player entered, with all the tiles on 
+    that column (which are on the 3 rows  : 1, 2, 3). If the value and the tile match, it will increment the counter by 
+    one. If all 3 values match the tile, the counter will reach the number 3, and will then exit the function while returning
+    true as value. If the counter doesn't reach the value of 3, the function will then move on to the next column and
+    repeat the process until there's no more columns. If it reaches the end without returning a value of true, it will
+    therefore return false.
 
-updateBoard.cpp :
-- Slightly edited a few spaces in order to make the board better looking
+- checkDiagonals()
+- checkLeftDiagonals() : it will compare each value the player entered with the following tiles : A1, B2, C3.
+    The counter will increment by one every time one of the values matches one of the aforementionned tiles.
+    If 3 of the values the player entere match those tiles, the counter will reach the number 3, and will then exit the
+    function while returning true as a value. If the counter doesn't reach the value of 3 by the end, the function will
+    return false instead.
 
-variables.h :
-- Added bool hasMark[DIMENSION][DIMENSION] : It's to keep track of which tiles have a mark (X or O) in them
+- checkRightDiagonals() : it will compare each value the player entered with the following tiles : C1, B2, A3.
+    The counter will increment by one every time one of the values matches one of the aforementionned tiles.
+    If 3 of the values the player entere match those tiles, the counter will reach the number 3, and will then exit the
+    function while returning true as a value. If the counter doesn't reach the value of 3 by the end, the function will
+    return false instead.
 
-main.cpp :
-- Added comments as a blueprint to the function to write after this commit and push
-
-Overall :
-- Added a few explanatory comments
