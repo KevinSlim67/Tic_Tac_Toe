@@ -1,4 +1,6 @@
-#include "libraries.h"
+#include "colors.cpp"
+#include <cstdlib> //for system("pause");
+
 #include "board\printBoard.cpp"
 #include "board\updateBoard.cpp"
 
@@ -6,14 +8,31 @@
 #include "moves\generateMove.cpp"
 
 #include "checkVictory.cpp"
+#include "selectFirstPlayer.cpp"
 
+#include <ctime> //for time(0)
+
+void playerStartsFirst();
+void computerStartsFirst();
 void win();
 void lose();
 void tie();
 
 int main() {
+    srand(time(0));
     printBoard();
 
+    if (selectFirstPlayer() == 1) {
+        playerStartsFirst();
+    } else {
+        computerStartsFirst();
+    }
+
+    system("pause");
+    return 0;
+}
+
+void playerStartsFirst() {
     while (true) {
         inputMove();
         updateBoard();
@@ -39,29 +58,50 @@ int main() {
             break;
         }
     }
+}
 
-    system("pause");
-    return 0;
+void computerStartsFirst() {
+     while (true) {
+        
+        generateMove();
+        updateBoard();
+
+        if (checkVictory(computer)) {
+            lose();
+            break;
+        }
+        
+
+        //the tie is always going to happen after the computer's turn
+        //meaning there's no point in putting it after inputMove()
+        //since it'll never happen after the player's turn
+        if (player.moves_count + computer.moves_count == 9) {
+            tie();
+            break;
+        }
+
+        inputMove();
+        updateBoard();
+
+        if (checkVictory(player)) {
+            lose();
+            break;
+        }
+    }
 }
 
 void win() {
     cout << endl;
-    SetConsoleTextAttribute(h, 10); //changes the color of the text to green from that point on
-    cout << "**** Congratulation, you have won ! :) ****\n" << endl;
-    SetConsoleTextAttribute(h, 15); //changes the color of the text to white from that point on
+    printYellow("**** Congratulation, you have won ! :) ****\n");
 }
 
 void lose() {
     cout << endl;
-    SetConsoleTextAttribute(h, 12); //changes the color of the text to light red from that point on
-    cout << "**** Sorry, you have lost ! :( ****\n" << endl;
-    SetConsoleTextAttribute(h, 15); //changes the color of the text to white from that point on
+    printRed("**** Sorry, you have lost ! :( ****\n");
 }
 
 void tie() {
     cout << endl;
-    SetConsoleTextAttribute(h, 6); //changes the color of the text to brow from that point on
-    cout << "**** It's a tie ! :| ****\n" << endl;
-    SetConsoleTextAttribute(h, 15); //changes the color of the text to white from that point on
+    printBrown("**** It's a tie ! :| ****\n");
 }
 

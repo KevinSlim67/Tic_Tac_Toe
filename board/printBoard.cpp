@@ -4,6 +4,7 @@
 #include "../variables.h"
 
 void initializeTiles();
+void initializePlayers();
 
 void printBoard() {
     cout << setw(space_size + 3) << "A" << setw(space_size) << "B" << setw(space_size) << "C" << endl;
@@ -17,6 +18,7 @@ void printBoard() {
     }
 
     initializeTiles();
+    initializePlayers();
 }
 
 //this function initializes the tiles positions
@@ -32,4 +34,9 @@ void initializeTiles() {
     tiles[1][2].position = "C2";
     tiles[2][2].position = "C3";
 
+}
+
+void initializePlayers() {
+    player.name = "Player 1";
+    computer.name = "Player 2";
 }

@@ -1,11 +1,9 @@
 #include "../libraries.h"
 #include "../variables.h"
 #include "updateComputerMove.cpp"
-#include <ctime>
 
 
 void generateMove() {
-    srand(time(0));
     char column;
     int row;
     int x, y;

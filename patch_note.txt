@@ -1,21 +1,22 @@
+Added :
+- colors.cpp
+- selectFirstPlayer.cpp
+
+colors.cpp :
+- Added 3 print function that'll print text in the 3 following colors : Yellow, Light Red, Brown
+
 updateBoard.cpp :
-- Added a printYellow() function
-- The X and O marks are colored yellow from now on
-- Made a few adjustments so the borders of the board don't move when you add an X or an O
+- Got rid of the color functions from there and instead put them in colors.cpp
 
 generateMove.cpp :
-- Now the user will only see the last move the computer generated as opposed to seeing every move it tried to generate
-  until it reached a valid one
+- Got rid of the srand(time) there and instead put it in main for it to be active for all the rand() used in the program
+
+printBoard.cpp :
+- Added an initializePlayers() function in order to be able to initialize the names used for them
+
+selectFirstPlayer.cpp :
+- Randomly selects whether the player or the computer starts first
 
 main.cpp :
-- Replaced every goto with a break;
-- Rewrote the win, lose and tie announcements as small functions
-- Moved the condition that checks for a tie before the generateMove() function. Since the player always starts first,
-  they'll always be the one having the last move. Meaning the program should only check for a tie after the player's turn
-
-variables.h :
-- Added the library <Windows.h> in order to create a HANDLE h, which makes it possible to use the
-  SetConsoleTextAttribute() function, which makes it possible to color text that'll be written after its usage
-
-checkVictory.cpp :
-- Replaced some ints into chars to avoid having to cast into char later on
+- Added 2 functions : playerStartsFirst() and computerStartsFirst() that are executed depending on the return value
+  of selectFirstPlayer()
