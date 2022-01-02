@@ -43,6 +43,7 @@ void inputMove() {
 
     } while (tiles[x][y].hasValue);
 
+    tiles[x][y].value = "X";
     string result = column + std::to_string(row);
     //std::tostring() converts whatever type into a string
 

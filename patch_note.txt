@@ -1,22 +1,11 @@
-Added :
-- colors.cpp
-- selectFirstPlayer.cpp
-
-colors.cpp :
-- Added 3 print function that'll print text in the 3 following colors : Yellow, Light Red, Brown
-
 updateBoard.cpp :
-- Got rid of the color functions from there and instead put them in colors.cpp
+- Reworked it so there's less repetition
+
+variables.h :
+- added string value to the struct player
 
 generateMove.cpp :
-- Got rid of the srand(time) there and instead put it in main for it to be active for all the rand() used in the program
+- sets tiles[x][y].value = 'O'
 
-printBoard.cpp :
-- Added an initializePlayers() function in order to be able to initialize the names used for them
-
-selectFirstPlayer.cpp :
-- Randomly selects whether the player or the computer starts first
-
-main.cpp :
-- Added 2 functions : playerStartsFirst() and computerStartsFirst() that are executed depending on the return value
-  of selectFirstPlayer()
+inputMove.cpp :
+- sets tiles[x][y].value = 'X'

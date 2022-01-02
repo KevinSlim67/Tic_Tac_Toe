@@ -25,6 +25,7 @@ void generateMove() {
 
     } while (tiles[x][y].hasValue);
 
+    tiles[x][y].value = "O";
     string result = column + std::to_string(row);
     //std::to_string() converts whatever type into a string
 

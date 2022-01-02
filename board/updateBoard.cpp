@@ -1,33 +1,28 @@
 #include "../libraries.h"
 #include "../variables.h"
+using std::string;
 
 void printYellow(string s);
 void printRed(string s);
 
 void updateBoard() {
     cout << setw(space_size + 3) << "A" << setw(space_size) << "B" << setw(space_size) << "C" << endl;
+
     for (int i = 0; i < DIMENSION; i++) {
         cout <<  i + 1;
         cout << setw(space_size) << "|";
-        //cout << setw(space_size) << "|";
+
         for (int j = 0; j < DIMENSION; j++) {
             if (tiles[i][j].hasValue) {
-                for (int k = 0; k < 5; k++) { 
-                    //checks the array of moves of the player, if one of them matches the current position,
-                    //it adds an X
-                    if (player.moves[k].compare(tiles[i][j].position) == 0) {
-                        printYellow(" X ");
-                        tiles_used++;
-                        break;
+                string mark = " " + tiles[i][j].value + " ";
 
-                    //checks the array of moves of the computer, if one of them matches the current position,
-                    //it adds an O   
-                    } else if (computer.moves[k].compare(tiles[i][j].position) == 0) {
-                        printRed(" O ");
-                        tiles_used++;
-                        break;
-                        }
+                if (mark.compare(" X ") == 0) {
+                    printYellow(mark);
+                } else {
+                    printRed(mark);
                 }
+                tiles_used++;
+
             }
             else {
                 cout << setw(space_size);

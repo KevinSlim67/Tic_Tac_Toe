@@ -10,6 +10,7 @@ const int space_size = 4;
 struct Tile {
     string position;
     bool hasValue = false;
+    string value;
 };
 
 struct Player {
