@@ -67,7 +67,7 @@ void computerStartsFirst() {
         updateBoard();
 
         if (checkVictory(computer)) {
-            lose();
+            win();
             break;
         }
         
@@ -84,7 +84,7 @@ void computerStartsFirst() {
         updateBoard();
 
         if (checkVictory(player)) {
-            lose();
+            win();
             break;
         }
     }

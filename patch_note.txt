@@ -1,11 +1,2 @@
-updateBoard.cpp :
-- Reworked it so there's less repetition
-
-variables.h :
-- added string value to the struct player
-
-generateMove.cpp :
-- sets tiles[x][y].value = 'O'
-
-inputMove.cpp :
-- sets tiles[x][y].value = 'X'
+main.cpp :
+- fixed bug that always showed the defeat message to the player if the computer started first
