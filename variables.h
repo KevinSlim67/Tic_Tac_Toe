@@ -17,8 +17,11 @@ struct Player {
     string name;
     string moves[5]; //neither player can play more than 5 moves
     int moves_count = 0;
+    string mark;
 };
 
+
+string difficulty;
 Tile tiles[DIMENSION][DIMENSION];
 Player player;
 Player computer;

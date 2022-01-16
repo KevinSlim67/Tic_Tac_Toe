@@ -1,2 +1,13 @@
 main.cpp :
-- fixed bug that always showed the defeat message to the player if the computer started first
+- fixed bug that caused player to always win when computer starts first
+
+checkTiles.cpp :
+- Added getHorizontalCase();
+- Added getVerticalCase();
+- Modified checkHorizontalLines() so it returns false if a line has 2 X's but 1 O for example
+- Modified checkVerticalLines() so it returns false if a column has 2 X's but 1 O for example
+
+-generateMove.cpp :
+- Added generateSlightlySmartMove() which does the following :
+    - Prevents the player from winning easily from rows
+    - Prevents the player from winning easily from columns

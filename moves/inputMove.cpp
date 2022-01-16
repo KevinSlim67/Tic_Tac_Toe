@@ -1,5 +1,6 @@
 //this function lets the user input a move (ex : A3)
 #include "../libraries.h"
+#include "../colors.cpp"
 #include "updatePlayerMove.cpp"
 using std::string; //lets me use the brackets on a string (without it being an array) to get individual characters
 
@@ -19,10 +20,10 @@ void inputMove() {
         do {
             counter++;
             if (counter > 1) {
-                cout << "Invalid Input. ";
+                printYellow("Invalid Input. ");
             }
             
-            cout << "Please enter a move : ";
+            printYellow("Please enter a move : ");
             /* The first character is the column, and the second one is the row
             Therefore, I separated them into different variables
             That way, I only have to check 6 conditions instead of 9 (or 18 if I hadn't used the function toupper() ) */
@@ -43,7 +44,7 @@ void inputMove() {
 
     } while (tiles[x][y].hasValue);
 
-    tiles[x][y].value = "X";
+    tiles[x][y].value = player.mark; //tiles[x][y].value = "X";
     string result = column + std::to_string(row);
     //std::tostring() converts whatever type into a string
 

@@ -1,6 +1,8 @@
+#ifndef COLORS_H_
+#define COLORS_H_
+
 #include "libraries.h"
 #include <Windows.h> //to be able to use HANDLE
-
 
 HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 // BLACK 0, BLUE 1, GREEN 2, CYAN 3, RED 4, MAGENTA 5, BROWN 6, LIGHT GREY 7, DARK GREY 8,
@@ -28,3 +30,4 @@ void printBrown(string s) {
 	SetConsoleTextAttribute(h, 15); //changes the color of the text to white from that point on
 }
 
+#endif
