@@ -93,27 +93,13 @@ bool checkVerticalLines(Player p, Player p2, int dim) {
 bool checkLeftDiagonal(Player p, Player p2, int dim) {
 
     int count = 0;
-    if (tiles[0][0].hasValue) {
-        if (tiles[0][0].value.compare(p.mark) == 0) {
-            count++;
-        } else if (tiles[0][0].value.compare(p2.mark) == 0) {
-            count--;
-        }
-    }
-
-    if (tiles[1][1].hasValue) {
-        if (tiles[1][1].value.compare(p.mark) == 0) {
-            count++;
-        } else if (tiles[1][1].value.compare(p2.mark) == 0) {
-            count--;
-        }
-    }
-
-    if (tiles[2][2].hasValue) {
-        if (tiles[2][2].value.compare(p.mark) == 0) {
-            count++;
-        } else if (tiles[2][2].value.compare(p2.mark) == 0) {
-            count--;
+    for (int i = 0; i < DIMENSION; i++) {
+        if (tiles[i][i].hasValue) {
+            if (tiles[i][i].value.compare(p.mark) == 0) {
+                count++;
+            } else if (tiles[i][i].value.compare(p2.mark) == 0) {
+                count--;
+            }
         }
     }
         
@@ -131,31 +117,18 @@ bool checkLeftDiagonal(Player p, Player p2, int dim) {
     return false instead. */
 bool checkRightDiagonal(Player p, Player p2, int dim) {
 
-       int count = 0;
-    if (tiles[0][2].hasValue) {
-        if (tiles[0][2].value.compare(p.mark) == 0) {
-            count++;
-        } else if (tiles[0][2].value.compare(p2.mark) == 0) {
-            count--;
+    int count = 0;
+
+    for (int i = 0, j = DIMENSION - 1; i < DIMENSION; i++, j--) {
+        if (tiles[j][i].hasValue) {
+            if (tiles[j][i].value.compare(p.mark) == 0) {
+                count++;
+            } else if (tiles[j][i].value.compare(p2.mark) == 0) {
+                count--;
+            }
         }
     }
 
-    if (tiles[1][1].hasValue) {
-        if (tiles[1][1].value.compare(p.mark) == 0) {
-            count++;
-        } else if (tiles[1][1].value.compare(p2.mark) == 0) {
-            count--;
-        }
-    }
-
-    if (tiles[2][0].hasValue) {
-        if (tiles[2][0].value.compare(p.mark) == 0) {
-            count++;
-        } else if (tiles[2][0].value.compare(p2.mark) == 0) {
-            count--;
-        }
-    }
-        
     if (count == dim) {
         return true;
     }
@@ -230,6 +203,52 @@ string getVerticalCase(Player p, int dim) {
                 if (!tiles[k][column_index].hasValue) {
                     return tiles[k][column_index].position;
                 }
+            }
+        }
+    }
+
+    system("pause");
+    return "null"; //in case of an error
+}
+
+string getLeftDiagonalCase(Player p, int dim) {
+    int count = 0;
+
+    for (int i = 0; i < DIMENSION; i++) {
+        if (tiles[i][i].hasValue) {
+            if (tiles[i][i].value.compare(p.mark) == 0) {
+                count++;
+            }
+        }
+    }
+
+    if (count == dim) {
+        for (int i = 0; i < DIMENSION; i++) {
+            if (!tiles[i][i].hasValue) {
+                return tiles[i][i].position;
+            }
+        }
+    }
+
+    system("pause");
+    return "null"; //in case of an error
+}
+
+string getRightDiagonalCase(Player p, int dim) {
+    int count = 0;
+
+    for (int i = 0, j = DIMENSION - 1; i < DIMENSION; i++, j--) {
+        if (tiles[j][i].hasValue) {
+            if (tiles[j][i].value.compare(p.mark) == 0) {
+                count++;
+            }
+        }
+    }
+
+    if (count == dim) {
+        for (int i = 0, j = DIMENSION - 1; i < DIMENSION; i++, j--) {
+            if (!tiles[j][i].hasValue) {
+                return tiles[j][i].position;
             }
         }
     }

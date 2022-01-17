@@ -61,9 +61,10 @@ string generateSlightlySmartMove() {
             return getVerticalCase(computer, 2);
 
         } else if (checkLeftDiagonal(computer, player, 2)) {
+            return getLeftDiagonalCase(player, 2);
 
         } else if (checkRightDiagonal(computer, player, 2)) {
-            
+            return getRightDiagonalCase(player, 2);
         } 
 
         /* Checks if the player's about to win, if it's the case, it blocks the win for them */
@@ -74,9 +75,11 @@ string generateSlightlySmartMove() {
             return getVerticalCase(player, 2);
 
         } else if (checkLeftDiagonal(player, computer, 2)) {
+            return getLeftDiagonalCase(player, 2);
 
         } else if (checkRightDiagonal(player, computer, 2)) {
-            
+            return getRightDiagonalCase(player, 2);
+
         }
     }
     return "null1";
