@@ -23,7 +23,7 @@ void inputMove() {
                 printYellow("Invalid Input. ");
             }
             
-            printYellow("Please enter a move : ");
+            printYellow("Player's Move : ");
             /* The first character is the column, and the second one is the row
             Therefore, I separated them into different variables
             That way, I only have to check 6 conditions instead of 9 (or 18 if I hadn't used the function toupper() ) */

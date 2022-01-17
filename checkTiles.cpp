@@ -211,6 +211,8 @@ string getVerticalCase(Player p, int dim) {
     return "null"; //in case of an error
 }
 
+/* This function checks the left diagonal, if there are dim number of the same marks on that diagonal,
+   and the third mark is empty, it will fill the empty case with the same mark */
 string getLeftDiagonalCase(Player p, int dim) {
     int count = 0;
 
@@ -234,6 +236,8 @@ string getLeftDiagonalCase(Player p, int dim) {
     return "null"; //in case of an error
 }
 
+/* This function checks the right diagonal, if there are dim number of the same marks on that diagonal,
+   and the third mark is empty, it will fill the empty case with the same mark */
 string getRightDiagonalCase(Player p, int dim) {
     int count = 0;
 

@@ -6,6 +6,7 @@ using std::string;
 void updatePlayerMove(string move) {
     player.moves[player.moves_count] = move;
     player.moves_count++;
+    tiles_used++;
 
     for (int i = 0; i < DIMENSION; i++) {
         for (int j = 0; j < DIMENSION; j++) {

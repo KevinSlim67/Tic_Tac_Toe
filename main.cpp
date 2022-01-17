@@ -105,7 +105,7 @@ void lose() {
 
 void tie() {
     cout << endl;
-    printBrown("**** It's a tie ! :| ****\n");
+    printGray("**** It's a tie ! :| ****\n");
 }
 
 using std::string;

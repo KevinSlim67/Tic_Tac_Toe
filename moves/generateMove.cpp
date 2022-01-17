@@ -8,6 +8,7 @@ string result;
 
 string generateRandomly();
 string generateSlightlySmartMove();
+string generateSmartMove();
 
 void generateMove() {
 
@@ -16,12 +17,7 @@ void generateMove() {
     } else if (difficulty.compare("medium") == 0) {
         result = generateSlightlySmartMove();
     } else if (difficulty.compare("hard") == 0) {
-
-    }
-
-    //prevents the program from bugging once there are no free tiles anymore
-    if (tiles_used == 9) {
-        return;
+        result = generateSmartMove();
     }
 
     printRed("Computer's Move : ");
@@ -49,38 +45,42 @@ string generateRandomly() {
 
 string generateSlightlySmartMove() {
 
-    if (computer.moves_count == 0) {
-        return generateRandomly();
-    } else {
-        
-        /* Checks if there's any win available, and if there is, it wins the game */
-         if (checkHorizontalLines(computer, player, 2)) {
-            return getHorizontalCase(computer, 2);
+    /* Checks if there's any win available, and if there is, it wins the game */
+    if (checkHorizontalLines(computer, player, 2)) {
+        return getHorizontalCase(computer, 2);
 
-        } else if (checkVerticalLines(computer, player, 2)) {
-            return getVerticalCase(computer, 2);
+    } else if (checkVerticalLines(computer, player, 2)) {
+        return getVerticalCase(computer, 2);
 
-        } else if (checkLeftDiagonal(computer, player, 2)) {
-            return getLeftDiagonalCase(player, 2);
+    } else if (checkLeftDiagonal(computer, player, 2)) {
+        return getLeftDiagonalCase(computer, 2);
 
-        } else if (checkRightDiagonal(computer, player, 2)) {
-            return getRightDiagonalCase(player, 2);
-        } 
+    } else if (checkRightDiagonal(computer, player, 2)) {
+        return getRightDiagonalCase(computer, 2);
+    } 
 
-        /* Checks if the player's about to win, if it's the case, it blocks the win for them */
-        if (checkHorizontalLines(player, computer, 2)) {
-            return getHorizontalCase(player, 2);
+    /* Checks if the player's about to win, if it's the case, it blocks the win for them */
+    if (checkHorizontalLines(player, computer, 2)) {
+        return getHorizontalCase(player, 2);
 
-        } else if (checkVerticalLines(player, computer, 2)) {
-            return getVerticalCase(player, 2);
+    } else if (checkVerticalLines(player, computer, 2)) {
+        return getVerticalCase(player, 2);
 
-        } else if (checkLeftDiagonal(player, computer, 2)) {
-            return getLeftDiagonalCase(player, 2);
+    } else if (checkLeftDiagonal(player, computer, 2)) {
+        return getLeftDiagonalCase(player, 2);
 
-        } else if (checkRightDiagonal(player, computer, 2)) {
-            return getRightDiagonalCase(player, 2);
-
-        }
+    } else if (checkRightDiagonal(player, computer, 2)) {
+        return getRightDiagonalCase(player, 2);
     }
-    return "null1";
+
+    // When there's no win to block, or no win to take, this function will just generate a random move
+    return generateRandomly();
+}
+
+string generateSmartMove() {
+    //the first move should always be on one of the following : A1, C1, B2, A3, C3
+    //the algorithm is similar to medium, but the functions run in a random order
+    //instead of randomly choosing moves, it should use one of the get...() functions to see what it can complete
+
+    return "null";
 }

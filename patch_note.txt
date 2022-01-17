@@ -1,2 +1,2 @@
-checkTiles.cpp :
-- Modified the way checkLeftDiagonal() and checkRightDiagonal() work 
+General :
+- Fixed a few bugs

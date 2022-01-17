@@ -30,4 +30,10 @@ void printBrown(string s) {
 	SetConsoleTextAttribute(h, 15); //changes the color of the text to white from that point on
 }
 
+void printGray(string s) {
+    SetConsoleTextAttribute(h, 6); //changes the color of the text to brown from that point on
+	cout << s;
+	SetConsoleTextAttribute(h, 15); //changes the color of the text to white from that point on
+}
+
 #endif

@@ -5,6 +5,7 @@
 void updateComputerMove(string move) {
     computer.moves[computer.moves_count] = move;
     computer.moves_count++;
+    tiles_used++;
 
        for (int i = 0; i < DIMENSION; i++) {
         for (int j = 0; j < DIMENSION; j++) {
