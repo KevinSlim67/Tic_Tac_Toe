@@ -93,24 +93,35 @@ bool checkVerticalLines(Player p, Player p2, int dim) {
 bool checkLeftDiagonal(Player p, Player p2, int dim) {
 
     int count = 0;
-        for (int k = 0; k < p.moves_count; k++) {
-
-            for (char i = '1', j = 'A'; i <= '3' && j <= 'C'; i++, j++) {
-
-                char row = p.moves[k][1];
-                char column = p.moves[k][0];
-                if (row == i && column == j) {
-                    count++;
-                }
-
-                if (count == dim) {
-                    return true;
-                }
-
-            }
+    if (tiles[0][0].hasValue) {
+        if (tiles[0][0].value.compare(p.mark) == 0) {
+            count++;
+        } else if (tiles[0][0].value.compare(p2.mark) == 0) {
+            count--;
         }
+    }
 
-        return false;
+    if (tiles[1][1].hasValue) {
+        if (tiles[1][1].value.compare(p.mark) == 0) {
+            count++;
+        } else if (tiles[1][1].value.compare(p2.mark) == 0) {
+            count--;
+        }
+    }
+
+    if (tiles[2][2].hasValue) {
+        if (tiles[2][2].value.compare(p.mark) == 0) {
+            count++;
+        } else if (tiles[2][2].value.compare(p2.mark) == 0) {
+            count--;
+        }
+    }
+        
+    if (count == dim) {
+        return true;
+    }
+
+    return false;
 }
 
 /*  it will compare each value the player entered with the following tiles : C1, B2, A3.
@@ -120,25 +131,36 @@ bool checkLeftDiagonal(Player p, Player p2, int dim) {
     return false instead. */
 bool checkRightDiagonal(Player p, Player p2, int dim) {
 
-    int count = 0;
-        for (int k = 0; k < p.moves_count; k++) {
-
-            for (char i = '1', j = 'C'; i <= '3' && j >= 'A'; i++, j--) {
-
-                char row = p.moves[k][1];
-                char column = p.moves[k][0];
-                if (row == i && column == j) {
-                    count++;
-                }
-
-                if (count == dim) {
-                    return true;
-                }
-
-            }
+       int count = 0;
+    if (tiles[0][2].hasValue) {
+        if (tiles[0][2].value.compare(p.mark) == 0) {
+            count++;
+        } else if (tiles[0][2].value.compare(p2.mark) == 0) {
+            count--;
         }
+    }
 
-        return false;
+    if (tiles[1][1].hasValue) {
+        if (tiles[1][1].value.compare(p.mark) == 0) {
+            count++;
+        } else if (tiles[1][1].value.compare(p2.mark) == 0) {
+            count--;
+        }
+    }
+
+    if (tiles[2][0].hasValue) {
+        if (tiles[2][0].value.compare(p.mark) == 0) {
+            count++;
+        } else if (tiles[2][0].value.compare(p2.mark) == 0) {
+            count--;
+        }
+    }
+        
+    if (count == dim) {
+        return true;
+    }
+
+    return false;
 }
 
 bool checkDiagonals(Player p, Player p2, int dim) {

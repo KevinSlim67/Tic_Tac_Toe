@@ -24,16 +24,6 @@ void generateMove() {
         return;
     }
 
-
-    for(int i = 0; i < DIMENSION; i++) {
-        for (int j = 0; j < DIMENSION; j++) {
-            if (tiles[i][j].position.compare(result) == 0) {
-                tiles[i][j].value = computer.mark; //tiles[x][y].value = "O";
-            }
-        }
-    }
-    //std::to_string() converts whatever type into a string
-
     printRed("Computer's Move : ");
     cout << result << endl;
     
