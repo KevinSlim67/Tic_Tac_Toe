@@ -5,6 +5,7 @@
 void updateComputerMove(string move) {
     computer.moves[computer.moves_count] = move;
     computer.moves_count++;
+    tiles_used++;
 
        for (int i = 0; i < DIMENSION; i++) {
         for (int j = 0; j < DIMENSION; j++) {
@@ -14,6 +15,7 @@ void updateComputerMove(string move) {
                 //.compare() compares the two variables, the one attached and the one in parentheses
                 //if they're equal, it will return the value 0 
                 tiles[i][j].hasValue = true; //makes sure the tile is not considered empty anymore
+                tiles[i][j].value = computer.mark; //tiles[x][y].value = "O";
                 return;
             }
         }

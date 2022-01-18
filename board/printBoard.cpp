@@ -38,5 +38,8 @@ void initializeTiles() {
 
 void initializePlayers() {
     player.name = "Player 1";
+    player.mark = "X";
+
     computer.name = "Player 2";
+    computer.mark = "O";
 }

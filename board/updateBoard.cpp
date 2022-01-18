@@ -21,7 +21,6 @@ void updateBoard() {
                 } else {
                     printRed(mark);
                 }
-                tiles_used++;
 
             }
             else {

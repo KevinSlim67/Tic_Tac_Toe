@@ -1,5 +1,6 @@
 #include "colors.cpp"
 #include <cstdlib> //for system("pause");
+#include <string>
 
 #include "board\printBoard.cpp"
 #include "board\updateBoard.cpp"
@@ -17,9 +18,11 @@ void computerStartsFirst();
 void win();
 void lose();
 void tie();
+void inputDifficulty();
 
 int main() {
     srand(time(0));
+    inputDifficulty();
     printBoard();
 
     if (selectFirstPlayer() == 1) {
@@ -37,7 +40,7 @@ void playerStartsFirst() {
         inputMove();
         updateBoard();
 
-        if (checkVictory(player)) {
+        if (checkVictory(player, computer)) {
             win();
             break;
         }
@@ -45,7 +48,7 @@ void playerStartsFirst() {
         //the tie is always going to happen after the player's turn
         //meaning there's no point in putting it after generateMove()
         //since it'll never happen after the computer's turn
-        if (player.moves_count + computer.moves_count == 9) {
+        if (tiles_used == 9) {
             tie();
             break;
         }
@@ -53,7 +56,7 @@ void playerStartsFirst() {
         generateMove();
         updateBoard();
 
-        if (checkVictory(computer)) {
+        if (checkVictory(computer, player)) {
             lose();
             break;
         }
@@ -66,8 +69,8 @@ void computerStartsFirst() {
         generateMove();
         updateBoard();
 
-        if (checkVictory(computer)) {
-            win();
+        if (checkVictory(computer, player)) {
+            lose();
             break;
         }
         
@@ -75,7 +78,7 @@ void computerStartsFirst() {
         //the tie is always going to happen after the computer's turn
         //meaning there's no point in putting it after inputMove()
         //since it'll never happen after the player's turn
-        if (player.moves_count + computer.moves_count == 9) {
+        if (tiles_used == 9) {
             tie();
             break;
         }
@@ -83,7 +86,7 @@ void computerStartsFirst() {
         inputMove();
         updateBoard();
 
-        if (checkVictory(player)) {
+        if (checkVictory(player, computer)) {
             win();
             break;
         }
@@ -102,6 +105,18 @@ void lose() {
 
 void tie() {
     cout << endl;
-    printBrown("**** It's a tie ! :| ****\n");
+    printGray("**** It's a tie ! :| ****\n");
 }
 
+using std::string;
+void inputDifficulty() {
+    do {
+        cout << "Please select a difficulty (Easy/Medium/Hard): ";
+        getline(cin,difficulty);
+        for (int i = 0; i < difficulty.length(); i++) {
+            difficulty[i] = tolower(difficulty[i]);
+        //transforms every character in this string to lowercase
+        //this makes conditions later on easier to deal with
+        }
+    } while (difficulty.compare("easy") != 0 && difficulty.compare("medium") && difficulty.compare("hard"));
+}

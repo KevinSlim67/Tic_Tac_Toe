@@ -1,2 +1,2 @@
-main.cpp :
-- fixed bug that always showed the defeat message to the player if the computer started first
+General :
+- Fixed a few bugs

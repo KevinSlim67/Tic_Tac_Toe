@@ -6,6 +6,7 @@ using std::string;
 void updatePlayerMove(string move) {
     player.moves[player.moves_count] = move;
     player.moves_count++;
+    tiles_used++;
 
     for (int i = 0; i < DIMENSION; i++) {
         for (int j = 0; j < DIMENSION; j++) {
@@ -15,6 +16,7 @@ void updatePlayerMove(string move) {
                 //.compare() compares the two variables, the one attached and the one in parentheses
                 //if they're equal, it will return the value 0 
                 tiles[i][j].hasValue = true; //makes sure the tile is not considered empty anymore
+                tiles[i][j].value = player.mark; //tiles[x][y].value = "X";
                 return;
             }
         }
