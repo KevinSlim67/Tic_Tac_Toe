@@ -3,6 +3,7 @@
 
 #include "libraries.h"
 #include <Windows.h> //to be able to use HANDLE
+//These functions might not work on MacOS
 
 HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 // BLACK 0, BLUE 1, GREEN 2, CYAN 3, RED 4, MAGENTA 5, BROWN 6, LIGHT GREY 7, DARK GREY 8,

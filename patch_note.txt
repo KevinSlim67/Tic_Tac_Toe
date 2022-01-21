@@ -1,8 +1,7 @@
-General :
-- Added "hard" difficulty
+main.cpp :
+- Added setValues() : sets important values back to 0, NULL, or false
+- Added playAgain() : checks if the player wants to play again
 
 generateMove.cpp :
-- added generateSmartMove()
-- added generateBestFirstMove() : chooses a first move that's one of the following : A1, C1, B2, A3, C3
-- added generateFunctionsSequence() : The same functions used in medium difficulty, but the order in which
-  they're run is randomized
+- fixed bug in generateSmartMove() that made it so the computer didn't generate any move after going through
+  all the condition. The bug was fixed by using the generateRandomly() function at the end

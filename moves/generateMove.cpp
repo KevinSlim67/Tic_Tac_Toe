@@ -26,6 +26,8 @@ void generateMove() {
     updateComputerMove(result);
 }
 
+//--------------------------Easy Difficulty Functions--------------------------------
+
 string generateRandomly() {
     char column;
     int row;
@@ -42,6 +44,8 @@ string generateRandomly() {
 
     return tiles[x][y].position;
 }
+
+//--------------------------Medium Difficulty Functions------------------------------
 
 string generateSlightlySmartMove() {
 
@@ -77,8 +81,10 @@ string generateSlightlySmartMove() {
     return generateRandomly();
 }
 
+//--------------------------Hard Difficulty Functions--------------------------------
+
 string generateBestFirstMove();
-string generateFunctionsSequence(Player p, Player p2, int dim);
+string generateFunctionsSequence(Player p, Player p2, int di);
 
 string generateSmartMove() {
     string result;
@@ -98,18 +104,21 @@ string generateSmartMove() {
             return result;
         }
 
-        result = generateFunctionsSequence(computer, player, 1);
-        if (result.compare("null") != 0) {
+        result = generateFunctionsSequence(computer, player, 1); //tries to generate a move on a row, column, or diagonal
+        if (result.compare("null") != 0) {                       //that contains another 'O' value
             return result;
         }
+
+        return generateRandomly(); //if none of the previous conditions happen, it'll just generate a random move
         
-    } else {  
+    } else {
         return generateBestFirstMove();
     }
 
     return "null";
 }
 
+//generates move at A1, C1, B2, A3, C3, which are the best positions to start at
 string generateBestFirstMove() {
     int random = (rand() % 5) + 1;
         switch (random) {
@@ -132,6 +141,7 @@ string generateBestFirstMove() {
         return "null";
 }
 
+//randomly generates the order in which the same functions used in medium are used
 string generateFunctionsSequence(Player p, Player p2, int dim) {
     int random;
     int temp[4] = {-1};

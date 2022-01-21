@@ -4,7 +4,7 @@
 
 void updateComputerMove(string move) {
     
-       for (int i = 0; i < DIMENSION; i++) {
+    for (int i = 0; i < DIMENSION; i++) {
         for (int j = 0; j < DIMENSION; j++) {
             if (tiles[i][j].hasValue)
                 continue;

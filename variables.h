@@ -9,15 +9,14 @@ const int space_size = 4;
 
 struct Tile {
     string position;
-    bool hasValue = false;
-    string value;
+    bool hasValue;
+    string value; // "X" or "O"
 };
 
 struct Player {
     string name;
-    string moves[5]; //neither player can play more than 5 moves
-    int moves_count = 0;
-    string mark;
+    int moves_count;
+    string mark; // "X" or "O"
 };
 
 
@@ -26,6 +25,6 @@ Tile tiles[DIMENSION][DIMENSION];
 Player player;
 Player computer;
 
-int tiles_used = 0;
+int tiles_used;
 
 #endif
