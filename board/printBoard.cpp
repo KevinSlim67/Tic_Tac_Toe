@@ -2,6 +2,7 @@
 //I used this instead of updateBoard() as to not check unnecessary conditions
 #include "../libraries.h"
 #include "../variables.h"
+#include "../colors.cpp"
 
 void initializeTiles();
 void initializePlayers();

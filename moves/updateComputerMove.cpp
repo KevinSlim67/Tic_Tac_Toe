@@ -3,10 +3,7 @@
 #include "../variables.h"
 
 void updateComputerMove(string move) {
-    computer.moves[computer.moves_count] = move;
-    computer.moves_count++;
-    tiles_used++;
-
+    
        for (int i = 0; i < DIMENSION; i++) {
         for (int j = 0; j < DIMENSION; j++) {
             if (tiles[i][j].hasValue)
@@ -16,6 +13,9 @@ void updateComputerMove(string move) {
                 //if they're equal, it will return the value 0 
                 tiles[i][j].hasValue = true; //makes sure the tile is not considered empty anymore
                 tiles[i][j].value = computer.mark; //tiles[x][y].value = "O";
+                computer.moves_count++;
+                tiles_used++;
+
                 return;
             }
         }

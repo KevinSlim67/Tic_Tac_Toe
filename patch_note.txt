@@ -1,2 +1,8 @@
 General :
-- Fixed a few bugs
+- Added "hard" difficulty
+
+generateMove.cpp :
+- added generateSmartMove()
+- added generateBestFirstMove() : chooses a first move that's one of the following : A1, C1, B2, A3, C3
+- added generateFunctionsSequence() : The same functions used in medium difficulty, but the order in which
+  they're run is randomized

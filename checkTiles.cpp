@@ -13,19 +13,21 @@
 bool checkHorizontalLines(Player p, Player p2, int dim) {
 
     for (int i = 0; i < DIMENSION; i++) {
-        int count = 0;
+        int count = 0, count_taken_cases = 0;
         for (char k = 0; k < DIMENSION; k++) {
 
             if (tiles[i][k].value.compare(p2.mark) == 0) {
                 count--;
+                count_taken_cases++;
             }
 
             if (tiles[i][k].value.compare(p.mark) == 0) {
                 count++;
+                count_taken_cases++;
             }   
         }
 
-        if (count == dim) {
+        if (count == dim && count_taken_cases <= dim) {
             return true;
         }   
     }
@@ -41,19 +43,21 @@ bool checkHorizontalLines(Player p, Player p2, int dim) {
 bool checkVerticalLines(Player p, Player p2, int dim) {
 
     for (int i = 0; i < DIMENSION; i++) {
-        int count = 0;
+        int count = 0, count_taken_cases = 0;
         for (int k = 0; k < DIMENSION; k++) {
         
             if (tiles[k][i].value.compare(p2.mark) == 0) {
                 count--;
+                count_taken_cases++;
             }
 
             if (tiles[k][i].value.compare(p.mark) == 0) {
                 count++;
+                count_taken_cases++;
             }
         }
 
-        if (count == dim) {
+        if (count == dim && count_taken_cases <= dim) {
             return true;
         }   
 
@@ -68,18 +72,20 @@ bool checkVerticalLines(Player p, Player p2, int dim) {
     return false instead. */
 bool checkLeftDiagonal(Player p, Player p2, int dim) {
 
-    int count = 0;
+    int count = 0, count_taken_cases = 0;
     for (int i = 0; i < DIMENSION; i++) {
         if (tiles[i][i].hasValue) {
             if (tiles[i][i].value.compare(p.mark) == 0) {
                 count++;
+                count_taken_cases++;
             } else if (tiles[i][i].value.compare(p2.mark) == 0) {
                 count--;
+                count_taken_cases;
             }
         }
     }
         
-    if (count == dim) {
+    if (count == dim && count_taken_cases <= dim) {
         return true;
     }
 
@@ -93,19 +99,21 @@ bool checkLeftDiagonal(Player p, Player p2, int dim) {
     return false instead. */
 bool checkRightDiagonal(Player p, Player p2, int dim) {
 
-    int count = 0;
+    int count = 0, count_taken_cases = 0;
 
     for (int i = 0, j = DIMENSION - 1; i < DIMENSION; i++, j--) {
         if (tiles[j][i].hasValue) {
             if (tiles[j][i].value.compare(p.mark) == 0) {
                 count++;
+                count_taken_cases++;
             } else if (tiles[j][i].value.compare(p2.mark) == 0) {
                 count--;
+                count_taken_cases;
             }
         }
     }
 
-    if (count == dim) {
+    if (count == dim && count_taken_cases <= dim) {
         return true;
     }
 
@@ -146,7 +154,7 @@ string getHorizontalCase(Player p, int dim) {
 }
 
 /* This function goes on each column, and returns the empty case on that column
-   This function should only be run after checkHorizontalLines(player, computer, 2) is run */
+   This function should only be run after checkVerticalLines(player, computer, 2) is run */
 string getVerticalCase(Player p, int dim) {
 
      for (int i = 0; i < DIMENSION; i++) {
