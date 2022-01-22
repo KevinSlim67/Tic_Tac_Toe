@@ -27,6 +27,7 @@ bool checkHorizontalLines(Player p, Player p2, int dim) {
             }   
         }
 
+        //prevents the function from returning true if count == dim but only because there was an opposing mark somewhere
         if (count == dim && count_taken_cases <= dim) {
             return true;
         }   
@@ -129,8 +130,7 @@ bool checkDiagonals(Player p, Player p2, int dim) {
     return false;
 }
 
-/* This function goes on each row, and returns the empty case on that row
-   This function should only be run after checkHorizontalLines(player, computer, 2) is run */
+/// This function goes on each row, and returns the empty case on that row
 string getHorizontalCase(Player p, int dim) {
 
     for (int i = 0; i < DIMENSION; i++) {
@@ -153,8 +153,7 @@ string getHorizontalCase(Player p, int dim) {
     return "null"; //in case of an error
 }
 
-/* This function goes on each column, and returns the empty case on that column
-   This function should only be run after checkVerticalLines(player, computer, 2) is run */
+// This function goes on each column, and returns the empty case on that column
 string getVerticalCase(Player p, int dim) {
 
      for (int i = 0; i < DIMENSION; i++) {
@@ -178,7 +177,7 @@ string getVerticalCase(Player p, int dim) {
 }
 
 /* This function checks the left diagonal, if there are dim number of the same marks on that diagonal,
-   and the third mark is empty, it will fill the empty case with the same mark */
+   and one case is empty, it will fill the empty case with the same mark */
 string getLeftDiagonalCase(Player p, int dim) {
     int count = 0;
 
@@ -203,7 +202,7 @@ string getLeftDiagonalCase(Player p, int dim) {
 }
 
 /* This function checks the right diagonal, if there are dim number of the same marks on that diagonal,
-   and the third mark is empty, it will fill the empty case with the same mark */
+   and one case is empty, it will fill the empty case with the same mark */
 string getRightDiagonalCase(Player p, int dim) {
     int count = 0;
 
