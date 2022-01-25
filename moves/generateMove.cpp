@@ -121,24 +121,32 @@ string generateSmartMove() {
 //generates move at A1, C1, B2, A3, C3, which are the best positions to start at
 string generateBestFirstMove() {
     int random = (rand() % 5) + 1;
+    string result = "null";
+    while (result == "null") {
         switch (random) {
             case 1 :
-                return tiles[0][0].position; //A1
+                if (!tiles[0][0].hasValue)
+                    result = tiles[0][0].position; //A1
                 break;
             case 2 :
-                return tiles[0][2].position; //C1
+                if (!tiles[0][2].hasValue)
+                    result = tiles[0][2].position; //C1
                 break;
             case 3 :
-                return tiles[1][1].position; //B2
+                if (!tiles[1][1].hasValue)
+                    result = tiles[1][1].position; //B2
                 break;
             case 4 :
-                return tiles[2][0].position; //A3
+                if (!tiles[2][0].hasValue)
+                    result = tiles[2][0].position; //A3
                 break;
             case 5 :
-                return tiles[2][2].position; //C3
+                if (!tiles[2][2].hasValue)
+                    result = tiles[2][2].position; //C3
                 break;
         }
-        return "null";
+    }
+        return result;
 }
 
 //randomly generates the order in which the same functions used in medium are used

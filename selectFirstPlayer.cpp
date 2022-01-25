@@ -97,5 +97,5 @@ void lose() {
 
 void tie() {
     cout << endl;
-    printGray("**** It's a tie ! :| ****\n");
+    printBrown("**** It's a tie ! :| ****\n");
 }
