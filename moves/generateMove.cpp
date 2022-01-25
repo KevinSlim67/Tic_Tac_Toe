@@ -125,24 +125,29 @@ string generateBestFirstMove() {
     while (result == "null") {
         switch (random) {
             case 1 :
-                if (!tiles[0][0].hasValue)
+                if (!tiles[0][0].hasValue) {
                     result = tiles[0][0].position; //A1
+                    }
                 break;
             case 2 :
-                if (!tiles[0][2].hasValue)
+                if (!tiles[0][2].hasValue) {
                     result = tiles[0][2].position; //C1
+                    }
                 break;
             case 3 :
-                if (!tiles[1][1].hasValue)
+                if (!tiles[1][1].hasValue) {
                     result = tiles[1][1].position; //B2
+                    }
                 break;
             case 4 :
-                if (!tiles[2][0].hasValue)
-                    result = tiles[2][0].position; //A3
+                if (!tiles[2][0].hasValue) {
+                    result = tiles[2][0].position; //A3 
+                    }
                 break;
             case 5 :
-                if (!tiles[2][2].hasValue)
+                if (!tiles[2][2].hasValue) {
                     result = tiles[2][2].position; //C3
+                    }
                 break;
         }
     }
