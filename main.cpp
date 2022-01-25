@@ -37,7 +37,7 @@ void inputDifficulty() {
         //transforms every character in this string to lowercase
         //this makes conditions later on easier to deal with
         }
-    } while (difficulty.compare("easy") != 0 && difficulty.compare("medium") && difficulty.compare("hard"));
+    } while (difficulty.compare("easy") != 0 && difficulty.compare("medium") != 0 && difficulty.compare("hard") != 0);
 }
 
 //checks if the player wants to play again
