@@ -120,9 +120,10 @@ string generateSmartMove() {
 
 //generates move at A1, C1, B2, A3, C3, which are the best positions to start at
 string generateBestFirstMove() {
-    int random = (rand() % 5) + 1;
+    int random;
     string result = "null";
     while (result.compare("null") == 0) {
+        random = (rand() % 5) + 1;
         switch (random) {
             case 1 :
                 if (!tiles[0][0].hasValue) {
