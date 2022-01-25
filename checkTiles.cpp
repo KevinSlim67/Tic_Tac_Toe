@@ -28,6 +28,7 @@ bool checkHorizontalLines(Player p, Player p2, int dim) {
         }
 
         //prevents the function from returning true if count == dim but only because there was an opposing mark somewhere
+        //this safety measure is useful when dim == 1
         if (count == dim && count_taken_cases <= dim) {
             return true;
         }   
@@ -58,6 +59,8 @@ bool checkVerticalLines(Player p, Player p2, int dim) {
             }
         }
 
+        //prevents the function from returning true if count == dim but only because there was an opposing mark somewhere
+        //this safety measure is useful when dim == 1
         if (count == dim && count_taken_cases <= dim) {
             return true;
         }   
@@ -85,7 +88,9 @@ bool checkLeftDiagonal(Player p, Player p2, int dim) {
             }
         }
     }
-        
+    
+    //prevents the function from returning true if count == dim but only because there was an opposing mark somewhere
+    //this safety measure is useful when dim == 1
     if (count == dim && count_taken_cases <= dim) {
         return true;
     }
@@ -114,6 +119,8 @@ bool checkRightDiagonal(Player p, Player p2, int dim) {
         }
     }
 
+    //prevents the function from returning true if count == dim but only because there was an opposing mark somewhere
+    //this safety measure is useful when dim == 1
     if (count == dim && count_taken_cases <= dim) {
         return true;
     }
