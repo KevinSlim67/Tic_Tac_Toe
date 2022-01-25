@@ -122,7 +122,7 @@ string generateSmartMove() {
 string generateBestFirstMove() {
     int random = (rand() % 5) + 1;
     string result = "null";
-    while (result == "null") {
+    while (result.compare("null") == 0) {
         switch (random) {
             case 1 :
                 if (!tiles[0][0].hasValue) {
@@ -151,7 +151,8 @@ string generateBestFirstMove() {
                 break;
         }
     }
-        return result;
+
+    return result;
 }
 
 //randomly generates the order in which the same functions used in medium are used
